@@ -15,7 +15,7 @@ class Yield_Curve:
         if date == None:
             params = self.data.iloc[-1]
         else:
-            date = pd.Timestamp(dt.strptime(date, '%Y-%m-%d'))
+            #date = pd.Timestamp(dt.strptime(date, '%Y-%m-%d'))
             try:
                 params = self.data.loc[date]
             except:
@@ -31,5 +31,5 @@ class Yield_Curve:
                 )
 
     def svensson_curve(self, date = None, length = 7300):
-        curve = [self.svensson_rate(days = i, date = date) for i in range(length)]
+        curve = [self.svensson_rate(days = i, date = date) for i in range(1, length)]
         return curve
